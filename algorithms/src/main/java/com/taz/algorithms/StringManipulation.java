@@ -44,10 +44,23 @@ public class StringManipulation {
         return list;
     }
     
+    private void getPowerSet(String value) {
+        if(value == null || value.isEmpty()) {
+            return;
+        }
+        for(int i = 0; i < value.length(); i++) {
+            String pre = value.substring(0, i+1);
+            String post = value.substring(i+1, value.length());
+            System.out.print(pre + " ");
+            getPowerSet(post);
+        }
+    }
+    
     public static void main(String[] args) {
         StringManipulation manipulation = new StringManipulation();
         manipulation.getAllCombinationsOfString("abc");
         manipulation.getAllCombinationsOfStringAsList("abc");
+        manipulation.getPowerSet("abcd");
         
     }
 }
